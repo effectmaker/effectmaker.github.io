@@ -1,21 +1,454 @@
+
 <!DOCTYPE html>
 <html>
+
 <head>
-    <meta charset="utf-8">
-    <title>EffectMaker</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto;
-            text-align: center;
-            padding: 100px;
-        }
-        h1 { font-size: 48px; }
-        p { font-size: 20px; color: #666; }
-    </style>
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="DESCRIPTION META TAG">
+  <meta property="og:title" content="SOCIAL MEDIA TITLE TAG" />
+  <meta property="og:description" content="SOCIAL MEDIA DESCRIPTION TAG TAG" />
+  <meta property="og:url" content="URL OF THE WEBSITE" />
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <meta property="og:image" content="static/images/pipeline.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+
+  <meta name="twitter:title" content="Direct-a-Video">
+  <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG">
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <meta name="twitter:image" content="static/images/pipeline.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="Direct-a-Video">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <title>EffectMaker: Leveraging Reasoning and Generation for Customized Visual Effect Creation</title>
+  <link rel="icon" type="image/x-icon" href="static/images/icon.ico">
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
 </head>
+
 <body>
-    <h1>EffectMaker</h1>
-    <p>Reference-driven VFX Customization</p>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">
+            <img src="icon.ico" alt="Icon" style="height:48px; width:48px;">
+            EffectMaker: Leveraging Reasoning and Generation for Customized Visual Effect Creation 
+          </h1>
+          <!-- <h1 class="title is-1 publication-title">Direct-a-Video: Customized Video Generation with User-Directed Camera Movement and Object Motion </h1> -->
+          <div class="is-size-5 publication-authors">
+
+            <!-- Paper authors -->
+            <span class="author-block">
+              Shiyuan Yang</a><sup>1,2</sup>,  <!-- https://scholar.google.com/citations?user=gIVxcEoAAAAJ&hl -->
+            </span>
+ 
+
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=8CfyOtQAAAAJ&hl" target="_blank">Ruihuang Li</a><sup>1</sup>,
+            </span>
+
+
+            <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=WF5DPWkAAAAJ&hl=en" target="_blank">Jiale Tao</a><sup>1</sup>,
+            </span>
+
+            <span class="author-block">
+                <a href="https://www.sshao.com/" target="_blank">Shuai Shao</a><sup>1</sup>,
+            </span>
+            
+
+            <span class="author-block">
+                <a href="https://openreview.net/profile?id=%7EQinglin_Lu2" target="_blank">Qinglin Lu</a><sup>1</sup>,
+            </span>
+
+            <span class="author-block">
+              <a href="https://www.cityu.edu.hk/stfprofile/jingliao.htm" target="_blank">Jing Liao</a><sup>2</sup>,
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Tencent Hunyuan,</span>
+            <span class="author-block"><sup>2</sup>City University of Hong Kong</span>
+          </div>
+          <div class="column has-text-centered">
+            <div class="publication-links">
+
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2402.03162"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+
+              <!-- ArXiv Link -->
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2402.03162" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+
+              <!-- Github link -->
+              <span class="link-block">
+                <a href="https://github.com/ysy31415/direct_a_video" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                </a>
+              </span>
+
+               <!-- Video link -->
+              <span class="link-block">
+                <a href="https://youtu.be/2s7m-dBimJw"
+                    class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+              
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Teaser image-->
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <div width="100%" style="font-size: 20px; text-align: center;">
+          <b>TL;DR</b>: EffectMaker is a unified reasoning–generation framework enables zero-shot reference-driven visual effect video creation.
+        </div>
+        <div class="text-center video-container" align="center" width="100%">
+        <iframe src="static/videos/intro_x264.mp4" frameborder="0" allowfullscreen width="640" height="360"></iframe>    
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End teaser image -->
+
+  <!-- Paper abstract -->
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+                Abstract here. Abstract here. Abstract here. Abstract here. Abstract here. Abstract here.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End paper abstract -->
+
+  <!-- Paper poster -->
+  <section class="hero is-small">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-">
+            <h2 class="title is-3">Method</h2>
+            <div class="content has-text-justified">
+              <table width="90%" border="0">
+                <tbody>
+                  <tr>
+                    <td colspan="3">
+                      <p>
+                        Our framework synthesizes a video that aligns with the user-directed camera movement and object motion. 
+                        The camera movement is learned in the training stage and the object motion is implemented in the inference stage.  
+                        <b>Left</b>: During training, we apply augmentation to video samples to simulate camera movement using panning and zooming parameters. These parameters are embedded and injected into newly introduced temporal cross-attention layers as the camera movement  conditioning, eliminating the need for camera movement annotation.
+                        <b>Right</b>: During inference, along with camera movement, user inputs a text prompt containing object words and associated box trajectories. We use spatial cross-attention modulation to guide the spatial-temporal placement of objects, all without additional optimization.
+                        Note that our approach, by independently controlling camera movement and object motion, effectively decouples the two, thereby enabling both individual and joint control.
+                      </p>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td colspan="3">
+                      <img src="static/images/pipeline.jpg" alt="" width="100%" >
+                    </td>
+                  </tr>
+                </tbody>
+
+              </table>
+
+            </div>
+          </div>
+  </section>
+  <!--End paper poster -->
+
+
+
+  <!-- Video grid -->
+  <section class="hero is-light">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+          <div class="column">
+            <h2 class="title is-3">
+              <img src="static/images/cam.ico" alt="Icon" style="height:30px; width:36px;">
+              Camera Movement Control</h2>
+            <div class="content has-text-justified">
+              <td colspan="3">
+                <!-- <p style="margin-top: -12px; font-size: 18px; color: rgb(134, 134, 134)" >
+                  Note: Hover over the videos to see the original video and text prompts.
+                </p> -->
+              </td>
+              <!-- </td> -->
+              <h3 class="title is-4">Basic Camera Movement</h3>
+              <div class="video-grid"> 
+                <div class="video-wrapper">
+                  <video preload="auto" class="default-video" src="static/videos/cam_basic.mp4"
+                    preload="metadata" autoplay controls loop muted></video>
+                </div>
+              </div>
+
+              <h3 class="title is-4">Hybrid Camera Movement (X+Y)</h3>
+              <div class="video-grid"> 
+                <div class="video-wrapper">
+                  <video preload="auto" class="default-video" src="static/videos/cam_xy.mp4"
+                    preload="metadata" autoplay controls loop muted></video>
+                </div>
+              </div>
+
+              <h3 class="title is-4">Hybrid Camera Movement (X+Z)</h3>
+              <div class="video-grid"> 
+                <div class="video-wrapper">
+                  <video preload="auto" class="default-video" src="static/videos/cam_xz.mp4"
+                    preload="metadata" autoplay controls loop muted></video>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End video preload="auto"grid -->
+
+
+
+
+
+  <!-- Video grid -->
+  <section class="hero is-light">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+          <div class="column">
+            <h2 class="title is-3">
+              <img src="static/images/obj.ico" alt="Icon" style="height:36px; width:36px;">
+              Object Motion Control</h2>
+            <div class="content has-text-justified">
+              <td colspan="3">
+                <!-- <p style="margin-top: -12px; font-size: 18px; color: rgb(134, 134, 134)" >
+                  Note: Hover over the videos to see the original video and text prompts.
+                </p> -->
+              </td>
+              <!-- </td> -->
+
+              <h3 class="title is-4"></h3>
+              <div class="video-grid"> 
+                <div class="video-wrapper">
+                  <video preload="auto" class="default-video" src="static/videos/obj.mp4"
+                    preload="metadata" autoplay controls loop muted></video>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End video preload="auto"grid -->
+
+
+
+    <!-- Video grid -->
+    <section class="hero is-light">
+        <div class="hero-body">
+            <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column">
+                <h2 class="title is-3">
+                  <img src="static/images/joint.ico" alt="Icon" style="height:36px; width:36px;">
+                  Joint Control on Camera Movement and Object Motion
+                </h2>
+                <div class="content has-text-justified">
+                    <td colspan="3">
+                    <!-- <p style="margin-top: -12px; font-size: 18px; color: rgb(134, 134, 134)" >
+                        Note: Hover over the videos to see the original video and text prompts.
+                    </p> -->
+                    </td>
+                    <!-- </td> -->
+                    <h3 class="title is-4">Static Box + Hybrid Camera Movement</h3>
+                    <div class="video-grid"> 
+                    <div class="video-wrapper">
+                        <video preload="auto" class="default-video" src="static/videos/joint1.mp4"
+                        preload="metadata" autoplay controls loop muted></video>
+                    </div>
+                    </div>
+
+                    <h3 class="title is-4">Single Moving Box + Hybrid Camera Movement</h3>
+                    <div class="video-grid"> 
+                    <div class="video-wrapper">
+                        <video preload="auto" class="default-video" src="static/videos/joint2.mp4"
+                        preload="metadata" autoplay controls loop muted></video>
+                    </div>
+                    </div>
+
+                    <h3 class="title is-4">Multiple Moving Boxes + Hybrid Camera Movement</h3>
+                    <div class="video-grid"> 
+                    <div class="video-wrapper">
+                        <video preload="auto" class="default-video" src="static/videos/joint3.mp4"
+                        preload="metadata" autoplay controls loop muted></video>
+                    </div>
+                    </div>
+
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </section>
+    <!-- End video preload="auto"grid -->
+
+  <!--BibTex citation -->
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre>
+        <code>
+          @article{yang2024direct,
+            title={Direct-a-Video: Customized Video Generation with User-Directed Camera Movement and Object Motion},
+            author={Yang, Shiyuan and Hou, Liang and Huang, Haibin and Ma, Chongyang and Wan, Pengfei and Zhang, Di and Chen, Xiaodong and Liao, Jing},
+            journal={arXiv preprint arXiv:2402.03162},
+            year={2024}
+          }
+        </code>
+      </pre>
+    </div>
+  </section>
+  <!--End BibTex citation -->
+
+
+  <section class="hero is-small">
+    <div class="hero-body">
+      <footer class="footer">
+        <div class="container">
+          <div class="columns is-centered">
+            <div class="column is-8">
+              <div class="content">
+
+                <p>
+                  This website is licensed under a <a rel="license"
+                  href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+                  Commons Attribution-ShareAlike 4.0 International License</a>.
+                  This means you are free to borrow the <a
+                  href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
+                  we just ask that you link back to this page in the footer.
+                  Please remember to remove the analytics code included in the header of the website which
+                  you do not want on your website.
+                </p>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </footer>
+    </div>
+
+    <!-- Statcounter tracking code -->
+
+    <!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+    <!-- End of Statcounter Code -->
+    <script>
+      window.addEventListener('DOMContentLoaded', (event) => {
+        const videoWrappers = document.querySelectorAll('.video-wrapper');
+
+        videoWrappers.forEach(wrapper => {
+          const defaultVideo = wrapper.querySelector('.default-video');
+          const aspectRatio = defaultVideo.videoWidth / defaultVideo.videoHeight;
+          const height = wrapper.offsetWidth / aspectRatio;
+
+          wrapper.style.height = `${height}px`;
+
+        //   wrapper.addEventListener('mouseenter', () => {
+        //     defaultVideo.pause();
+        //     hoverVideo.play();
+        //   });
+
+        //   wrapper.addEventListener('mouseleave', () => {
+        //     defaultVideo.play();
+        //     hoverVideo.pause();
+        //   });
+        });
+      });
+      $(document).ready(function () {
+        var carouselItems = $('.carousel .item');
+        var numItems = carouselItems.length;
+        var numVideos = 5;
+        var currentIndex = 0;
+
+        $('.carousel').on('click', function () {
+          currentIndex++;
+          if (currentIndex + numVideos <= numItems) {
+            carouselItems.removeClass('active');
+            carouselItems.slice(currentIndex, currentIndex + numVideos).addClass('active');
+          } else {
+            currentIndex = 0;
+            carouselItems.removeClass('active');
+            carouselItems.slice(currentIndex, currentIndex + numVideos).addClass('active');
+          }
+        });
+
+        carouselItems.slice(currentIndex, currentIndex + numVideos).addClass('active');
+      });
+    </script>
 </body>
+
 </html>
