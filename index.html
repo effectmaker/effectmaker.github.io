@@ -11,18 +11,16 @@
   <meta property="og:description" content="SOCIAL MEDIA DESCRIPTION TAG TAG" />
   <meta property="og:url" content="URL OF THE WEBSITE" />
   <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
-  <meta property="og:image" content="static/images/pipeline.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
 
 
-  <meta name="twitter:title" content="Direct-a-Video">
+  <meta name="twitter:title" content="EffectMaker">
   <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG">
   <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
-  <meta name="twitter:image" content="static/images/pipeline.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <!-- Keywords for your paper to be indexed by-->
-  <meta name="keywords" content="Direct-a-Video">
+  <meta name="keywords" content="EffectMaker">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
@@ -63,12 +61,13 @@
 
             <!-- Paper authors -->
             <span class="author-block">
-              Shiyuan Yang</a><sup>1,2,*</sup>,  <!-- https://scholar.google.com/citations?user=gIVxcEoAAAAJ&hl -->
+
+              <a href="https://scholar.google.com/citations?user=gIVxcEoAAAAJ&hl" target="_blank">Shiyuan Yang</a><sup>1,2,&dagger;,*</sup>,
             </span>
  
 
             <span class="author-block">
-              <a href="https://scholar.google.com/citations?user=8CfyOtQAAAAJ&hl" target="_blank">Ruihuang Li</a><sup>1</sup>,
+              <a href="https://scholar.google.com/citations?user=8CfyOtQAAAAJ&hl" target="_blank">Ruihuang Li</a><sup>1,&dagger;</sup>,
             </span>
 
 
@@ -77,12 +76,12 @@
             </span>
 
             <span class="author-block">
-                <a href="https://www.sshao.com/" target="_blank">Shuai Shao</a><sup>1</sup>,
+                <a href="https://www.sshao.com/" target="_blank">Shuai Shao</a><sup>1,  &ddagger;</sup>,
             </span>
             
 
             <span class="author-block">
-                <a href="https://openreview.net/profile?id=%7EQinglin_Lu2" target="_blank">Qinglin Lu</a><sup>1,&dagger;</sup>,
+                <a href="https://openreview.net/profile?id=%7EQinglin_Lu2" target="_blank">Qinglin Lu</a><sup>1,&#9993;</sup>,
             </span>
 
             <span class="author-block">
@@ -94,7 +93,7 @@
             <span class="author-block"><sup>1</sup>Tencent Hunyuan,</span>
             <span class="author-block"><sup>2</sup>City University of Hong Kong</span>
           </div>
-          <div class="eql-cntrb"><small><sup>*</sup>Work done during internship at Tencent Hunyuan.     &dagger; Project lead.     &#9993; Corresponding author.</small></div>
+          <div class="eql-cntrb"><small> &dagger;  Equal contribution.     <sup>*</sup>Work done during internship at Tencent Hunyuan.     &ddagger; Project lead.     &#9993; Corresponding authors.</small></div>
           <div class="column has-text-centered">
             <div class="publication-links">
 
@@ -131,10 +130,20 @@
                 </a>
               </span>
 
+              <!-- Comparison link -->
+              <span class="link-block">
+                <a href="#compare"
+                    class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-columns"></i>
+                  </span>
+                  <span>Comparison</span>
+                </a>
+              </span>
 
               <!-- Github link -->
               <span class="link-block">
-                <a href="#"
+                <a href="https://github.com/ysy31415/EffectMaker"
                   class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                     <i class="fab fa-github"></i>
@@ -145,12 +154,13 @@
 
                <!-- Dataset link -->
               <span class="link-block">
-                <a href="#"
+                <!-- <a href="#" -->
+                <a href="https://huggingface.co/datasets/ysy31415926/EffectData"
                     class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                     🤗
                   </span>
-                  <span>Dataset (Coming Soon)</span>
+                  <span>EffectData (Coming Soon)</span>
                 </a>
               </span>
               
@@ -169,7 +179,7 @@
           <b>TL;DR</b>: 
             EffectMaker is a unified reasoning–generation framework enables zero-shot reference-driven visual effect video creation.
             <br>
-            EffectData is the largest and high-quality synthetic VFX dataset to date, containing 2000+ VFX clasess and 100,000+ videos.
+            EffectData is the largest and high-quality synthetic VFX dataset to date, containing 3000+ VFX clasess and 130,000+ videos.
         </div>
         <div style="width: 100%; display: flex; justify-content: center; align-items: center; margin-top: 20px;">
           <img src="images/teaser.png" alt="Teaser" style="width: 80vw; max-width: 100%; display: block; border-radius: 10px; box-shadow: 0 2px 12px rgba(0,0,0,0.13);" />
@@ -190,7 +200,7 @@
             <p>
                 Visual effects (VFX) are essential for enhancing the expressiveness and creativity of video content, yet producing high-quality effects typically requires expert knowledge and costly production pipelines. Existing AIGC systems face significant challenges in VFX generation due to the scarcity of effect-specific data and the inherent difficulty of modeling supernatural or stylized effects. Moreover, these approaches often require per-effect fine-tuning, which severely limits their scalability and generalization to novel VFX.
                 In this work, we present EffectMaker, a unified reasoning–generation framework that enables reference-based VFX customization. EffectMaker employs a multimodal large language model to interpret high-level effect semantics and reason about their adaptation to a target subject, while a diffusion transformer leverages in-context learning to capture fine-grained visual cues from reference videos. These two components form a semantic–visual dual-path guidance mechanism that enables accurate, controllable, and effect-consistent synthesis without per-effect fine-tuning.
-                Furthermore, we construct EffectData, the largest and high-quality synthetic dataset containing 100K videos across 2K VFX categories, to enhance generalization and scalability. Experiments show that EffectMaker achieves superior visual quality and effect consistency over state-of-the-art baselines, offering a scalable and flexible paradigm for customized VFX generation.
+                Furthermore, we construct EffectData, the largest and high-quality synthetic dataset containing 120K videos across 3K VFX categories, to enhance generalization and scalability. Experiments show that EffectMaker achieves superior visual quality and effect consistency over state-of-the-art baselines, offering a scalable and flexible paradigm for customized VFX generation.
             </p>
           </div>
         </div>
@@ -207,7 +217,7 @@
           <div class="column">
             <h2 class="title is-3">Method</h2>
             <div class="content has-text-justified">
-              <table width="90%" border="0">
+              <table border="0" style="width: 60% !important; margin: 0 auto;">
                 <tbody>
                   <tr>
                     <td colspan="3">
@@ -221,7 +231,7 @@
                   </tr>
                   <tr>
                     <td colspan="3" style="text-align: center;">
-                      <img src="images/method.png" alt="" width="80%" style="display: inline-block; margin: 0 auto;" >
+                      <img src="images/pipeline2.png" alt="" width="100%" style="display: inline-block; margin: 0 auto;" >
                     </td>
                   </tr>
                 </tbody>
@@ -240,7 +250,7 @@
           <div class="column">
             <h2 class="title is-3">Dataset Construction</h2>
             <div class="content has-text-justified">
-              <table width="90%" border="0">
+              <table border="0" style="width: 60% !important; margin: 0 auto;">
                 <tbody>
                   <tr>
                     <td colspan="3">
@@ -257,7 +267,7 @@
                   </tr>
                   <tr>
                     <td colspan="3" style="text-align: center;">
-                      <img src="images/data_pipeline.png" alt="" width="80%" style="display: inline-block; margin: 0 auto;" >
+                      <img src="images/data_pipeline.png" alt="" width="100%" style="display: inline-block; margin: 0 auto;" >
                     </td>
                   </tr>
                 </tbody>
@@ -307,6 +317,57 @@
     </div>
   </section>
   <!-- End Gallery -->
+
+  <!-- Divider between Gallery and Comparison -->
+  <div style="max-width: 80%; margin: 0 auto; padding: 40px 20px;">
+    <hr style="border: none; border-top: 1px solid #fff; opacity: 0.4;">
+  </div>
+
+  <!-- Comparison section (integrated from compare.html) -->
+  <section class="hero" id="compare">
+    <div class="hero-body">
+      <div class="compare-header">
+        <h2 class="title is-3">Comparison with Baseline Methods (on OpenVFX)</h2>
+        <div class="compare-info">
+          This gallery shows the comparison on OpenVFX dataset.
+          <span style="margin-left: 20px;">Page <span id="cmpPageInfo">1 / 3</span></span>
+        </div>
+
+        <div class="pagination">
+          <button id="cmpTopPrevBtn" onclick="cmpChangePage(-1)">Previous Page</button>
+          <span class="page-number" id="cmpTopCurrentPage">1</span>
+          <button id="cmpTopNextBtn" onclick="cmpChangePage(1)">Next Page</button>
+          <div class="page-jump">
+            <span>Go to page:</span>
+            <input type="number" id="cmpTopPageInput" min="1" placeholder="Page">
+            <button onclick="cmpJumpToPage('top')">Go</button>
+          </div>
+        </div>
+      </div>
+      <div class="compare-wrapper">
+        <div class="cmp-column-headers">
+          <div class="cmp-column-header ref">Reference Video</div>
+          <div class="cmp-column-header image">Target Image</div>
+          <div class="cmp-column-header vfxcreator">VFXCreator</div>
+          <div class="cmp-column-header omnieffect">OmniEffect</div>
+          <div class="cmp-column-header wan22ft">Wan22-FT</div>
+          <div class="cmp-column-header ours">Ours</div>
+        </div>
+        <div class="cmp-gallery-grid" id="cmpGalleryGrid"></div>
+        <div class="pagination">
+          <button id="cmpBottomPrevBtn" onclick="cmpChangePage(-1)">Previous Page</button>
+          <span class="page-number" id="cmpBottomCurrentPage">1</span>
+          <button id="cmpBottomNextBtn" onclick="cmpChangePage(1)">Next Page</button>
+          <div class="page-jump">
+            <span>Go to page:</span>
+            <input type="number" id="cmpBottomPageInput" min="1" placeholder="Page">
+            <button onclick="cmpJumpToPage('bottom')">Go</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Comparison -->
 
   <!--BibTex citation -->
   <section class="section" id="BibTeX">
@@ -402,7 +463,7 @@
         carouselItems.slice(currentIndex, currentIndex + numVideos).addClass('active');
       });
 
-      // Gallery (integrated from gallery.html)
+      ///////////////////////////////////////////////////////// Gallery (integrated from gallery.html) /////////////////////////////////////////////////////////
       (function() {
         const dataGroups = [
           '055daa29','0b135688','0d009d02','1055f291','141e27ee','1456b621','1462f3e3','16d52934','1bf19a84','27dfad6a',
@@ -414,7 +475,13 @@
           'ab52484a','ac27911a','ad36d63a','adcb6f84','afaa0256','b27f0fb0','b2b299dc','1762ad61','b38ad8da','b89ab79b',
           'bf08addb','c230a5ad','c27daaac','c50f67a5','c5dbbe7d','c6243dd3','c70c0717','c90c3752','cbd29a31','ce32d67e',
           '210631aa','cfa619b7','d0708c65','de3846d9','1e98203c','de4ddce5','def71813','dfff81b0','e09461f8','1d09b27d',
-          'e0fc805d','e17dfbd0','19f9c985','e4fd3909','ed4d97d1','ed86efa5','f6164c6f','f8b8a378','fad0a2c3','z0b3e718'
+          'e0fc805d','e17dfbd0','19f9c985','e4fd3909','ed4d97d1','ed86efa5','f6164c6f','f8b8a378','fad0a2c3','z0b3e718',
+          //
+          '0242beef','08de4768','140d86d7','17d84118','240ed13f','2e4fdfa3','4f2e2ec3','52d715a6','53518067','58ea763e',
+          '5a128324','67224875','94cb799d','96bcc0b7','99ebc4c6','a1a409bc','a475de07','a98abce8','aaadd4dc','ae127654',
+          'b3611273','b638ec94','c6cfa31c','c9c95fa7','cf517c89','d80082d0','d9dcb17c','e19a23ce','e20630a3','e4625976',
+          'ef377034'
+        
         ];
         const itemsPerPage = 20;
         let currentPage = 1;
@@ -511,6 +578,142 @@
 
         galleryRenderPage();
       })();
+      ///////////////////////////////////////////////////////// End Gallery /////////////////////////////////////////////////////////
+
+
+
+
+
+
+      ///////////////////////////////////////////////////////// Comparison (integrated from compare.html) /////////////////////////////////////////////////////////
+      (function() {
+        var cmpData = [
+          {"ref":"ref;Crumble_it_seed852655975.mp4","image":"image;Crumble_it_seed852655975;FH31413891-49e0-3e35-8c9d-713fb1d8b89f.jpg","vfxcreator":"vfxcreator;Crumble;FH31413891-49e0-3e35-8c9d-713fb1d8b89f.mp4","omnieffect":"omnieffect;Crumble;FH31413891-49e0-3e35-8c9d-713fb1d8b89f.mp4","wan22ft":"wan22-ft;Crumble;FH31413891-49e0-3e35-8c9d-713fb1d8b89f.mp4","ours":"ours;Crumble_it_seed852655975;FH31413891-49e0-3e35-8c9d-713fb1d8b89f.mp4"},
+          {"ref":"ref;Decapitate_it_seed1639668157.mp4","image":"image;Decapitate_it_seed1639668157;FH1473_1.jpg","vfxcreator":"vfxcreator;Decapitate;FH1473_1.mp4","omnieffect":"omnieffect;Decapitate;FH1473_1.mp4","wan22ft":"wan22-ft;Decapitate;FH1473_1.mp4","ours":"ours;Decapitate_it_seed1639668157;FH1473_1.mp4"},
+          {"ref":"ref;Deflate_it_seed2297521388.mp4","image":"image;Deflate_it_seed3371000616;MHad7bc074ddb7372aef879a7c3b02347c.jpg","vfxcreator":"vfxcreator;Deflate;MHad7bc074ddb7372aef879a7c3b02347c.mp4","omnieffect":"omnieffect;Deflate;MHad7bc074ddb7372aef879a7c3b02347c.mp4","wan22ft":"wan22-ft;Deflate;MHad7bc074ddb7372aef879a7c3b02347c.mp4","ours":"ours;Deflate_it_seed3371000616;MHad7bc074ddb7372aef879a7c3b02347c.mp4"},
+          {"ref":"ref;Dissolve_it_seed3977366547.mp4","image":"image;Dissolve_it_seed3977366547;FH78_9.jpg","vfxcreator":"vfxcreator;Dissolve;FH78_9.mp4","omnieffect":"omnieffect;Dissolve;FH78_9.mp4","wan22ft":"wan22-ft;Dissolve;FH78_9.mp4","ours":"ours;Dissolve_it_seed3977366547;FH78_9.mp4"},
+          {"ref":"ref;Eye-pop_it_seed499579000.mp4","image":"image;Eye-pop_it_seed499579000;MH146aacd3876e063d1443fa401f2c4b5a.jpg","vfxcreator":"vfxcreator;Eye-pop;MH146aacd3876e063d1443fa401f2c4b5a.mp4","omnieffect":"omnieffect;Eye-pop;MH146aacd3876e063d1443fa401f2c4b5a.mp4","wan22ft":"wan22-ft;Eye-pop;MH146aacd3876e063d1443fa401f2c4b5a.mp4","ours":"ours;Eye-pop_it_seed499579000;MH146aacd3876e063d1443fa401f2c4b5a.mp4"},
+          {"ref":"ref;Inflate_it_seed2249597276.mp4","image":"image;Inflate_it_seed1857775988;FH995_14.jpg","vfxcreator":"vfxcreator;Inflate;FH995_14.mp4","omnieffect":"omnieffect;Inflate;FH995_14.mp4","wan22ft":"wan22-ft;Inflate;FH995_14.mp4","ours":"ours;Inflate_it_seed1857775988;FH995_14.mp4"},
+          {"ref":"ref;Levitate_2460.mp4","image":"image;Levitate_2460;ZHhyena-3dcbcce6.jpg","vfxcreator":"vfxcreator;Levitate;ZHhyena-3dcbcce6.mp4","omnieffect":"omnieffect;Levitate;ZHhyena-3dcbcce6.mp4","wan22ft":"wan22-ft;Levitate;ZHhyena-3dcbcce6.mp4","ours":"ours;Levitate_2460;ZHhyena-3dcbcce6.mp4"},
+          {"ref":"ref;Melt_it_seed1141516917.mp4","image":"image;Melt_it_seed1434692271;ZHboar-e339e575.jpg","vfxcreator":"vfxcreator;Melt;ZHboar-e339e575.mp4","omnieffect":"omnieffect;Melt;ZHboar-e339e575.mp4","wan22ft":"wan22-ft;Melt;ZHboar-e339e575.mp4","ours":"ours;Melt_it_seed1434692271;ZHboar-e339e575.mp4"},
+          {"ref":"ref;Squish_it_seed3265115126.mp4","image":"image;Squish_it_seed3265115126;ZHsea_turtle-70b2763f.jpg","vfxcreator":"vfxcreator;Squish;ZHsea_turtle-70b2763f.mp4","omnieffect":"omnieffect;Squish;ZHsea_turtle-70b2763f.mp4","wan22ft":"wan22-ft;Squish;ZHsea_turtle-70b2763f.mp4","ours":"ours;Squish_it_seed3265115126;ZHsea_turtle-70b2763f.mp4"},
+          {"ref":"ref;Ta-da_it_seed1245562297.mp4","image":"image;Ta-da_it_seed1245562297;FH1209_0.jpg","vfxcreator":"vfxcreator;Ta-da;FH1209_0.mp4","omnieffect":"omnieffect;Ta-da;FH1209_0.mp4","wan22ft":"wan22-ft;Ta-da;FH1209_0.mp4","ours":"ours;Ta-da_it_seed1245562297;FH1209_0.mp4"},
+          {"ref":"ref;Venom_pixverse5bf023f3-3d1a-4396-91ad-d9db90be4ce2_seed1792653766.mp4","image":"image;Venom_pixverse5bf023f3-3d1a-4396-91ad-d9db90be4ce2_seed1792653766;FH655_4.jpg","vfxcreator":"vfxcreator;Venom;FH655_4.mp4","omnieffect":"omnieffect;Venom;FH655_4.mp4","wan22ft":"wan22-ft;Venom;FH655_4.mp4","ours":"ours;Venom_pixverse5bf023f3-3d1a-4396-91ad-d9db90be4ce2_seed1792653766;FH655_4.mp4"},
+          {"ref":"ref;explode_10_20250517_215624_4122.mp4","image":"image;explode.jpg","vfxcreator":"vfxcreator;explode.mp4","omnieffect":"omnieffect;explode.mp4","wan22ft":"wan22-ft;explode.mp4","ours":"ours;explode.mp4"}
+        ];
+        var cmpItemsPerPage = 4;
+        var cmpCurrentPage = 1;
+        var cmpTotalPages = Math.ceil(cmpData.length / cmpItemsPerPage);
+
+        function updateCmpPageInfo() {
+          var el = document.getElementById('cmpPageInfo');
+          if (el) el.textContent = cmpCurrentPage + ' / ' + cmpTotalPages;
+          el = document.getElementById('cmpTopCurrentPage');
+          if (el) el.textContent = cmpCurrentPage;
+          el = document.getElementById('cmpBottomCurrentPage');
+          if (el) el.textContent = cmpCurrentPage;
+          var prevDisabled = cmpCurrentPage === 1;
+          var nextDisabled = cmpCurrentPage === cmpTotalPages;
+          el = document.getElementById('cmpTopPrevBtn');
+          if (el) el.disabled = prevDisabled;
+          el = document.getElementById('cmpBottomPrevBtn');
+          if (el) el.disabled = prevDisabled;
+          el = document.getElementById('cmpTopNextBtn');
+          if (el) el.disabled = nextDisabled;
+          el = document.getElementById('cmpBottomNextBtn');
+          if (el) el.disabled = nextDisabled;
+          el = document.getElementById('cmpTopPageInput');
+          if (el) el.max = cmpTotalPages;
+          el = document.getElementById('cmpBottomPageInput');
+          if (el) el.max = cmpTotalPages;
+        }
+
+        function cmpRenderPage() {
+          var grid = document.getElementById('cmpGalleryGrid');
+          if (!grid) return;
+          grid.innerHTML = '';
+          var start = (cmpCurrentPage - 1) * cmpItemsPerPage;
+          var end = Math.min(start + cmpItemsPerPage, cmpData.length);
+          var pageData = cmpData.slice(start, end);
+          for (var i = 0; i < pageData.length; i++) {
+            var row = pageData[i];
+            var globalIdx = start + i;
+            var rowDiv = document.createElement('div');
+            rowDiv.className = 'cmp-gallery-row';
+            var rowNum = document.createElement('div');
+            rowNum.className = 'cmp-row-number';
+            rowNum.textContent = '#' + (globalIdx + 1);
+            rowDiv.appendChild(rowNum);
+
+            var refItem = document.createElement('div');
+            refItem.className = 'cmp-gallery-item';
+            refItem.innerHTML = '<div class="cmp-media-container"><video src="./compare_lr/ref/' + row.ref + '" autoplay loop muted playsinline></video></div><div class="cmp-filename-label">' + row.ref.split(';')[1].split('_')[0] + '</div>';
+            rowDiv.appendChild(refItem);
+
+            var imgItem = document.createElement('div');
+            imgItem.className = 'cmp-gallery-item';
+            imgItem.innerHTML = '<div class="cmp-media-container"><img src="./compare_lr/image/' + row.image + '" alt="Target Image"></div>';
+            rowDiv.appendChild(imgItem);
+
+            var vfxItem = document.createElement('div');
+            vfxItem.className = 'cmp-gallery-item';
+            vfxItem.innerHTML = '<div class="cmp-media-container"><video src="./compare_lr/vfxcreator/' + row.vfxcreator + '" autoplay loop muted playsinline></video></div>';
+            rowDiv.appendChild(vfxItem);
+
+            var omniItem = document.createElement('div');
+            omniItem.className = 'cmp-gallery-item';
+            omniItem.innerHTML = '<div class="cmp-media-container"><video src="./compare_lr/omnieffect/' + row.omnieffect + '" autoplay loop muted playsinline></video></div>';
+            rowDiv.appendChild(omniItem);
+
+            var wanItem = document.createElement('div');
+            wanItem.className = 'cmp-gallery-item';
+            wanItem.innerHTML = '<div class="cmp-media-container"><video src="./compare_lr/wan22ft/' + row.wan22ft + '" autoplay loop muted playsinline></video></div>';
+            rowDiv.appendChild(wanItem);
+
+            var oursItem = document.createElement('div');
+            oursItem.className = 'cmp-gallery-item';
+            oursItem.innerHTML = '<div class="cmp-media-container"><video src="./compare_lr/ours/' + row.ours + '" autoplay loop muted playsinline></video></div>';
+            rowDiv.appendChild(oursItem);
+
+            grid.appendChild(rowDiv);
+          }
+          updateCmpPageInfo();
+        }
+
+        window.cmpChangePage = function(direction) {
+          var newPage = cmpCurrentPage + direction;
+          if (newPage >= 1 && newPage <= cmpTotalPages) {
+            cmpCurrentPage = newPage;
+            cmpRenderPage();
+            document.getElementById('compare') && document.getElementById('compare').scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        };
+
+        window.cmpJumpToPage = function(source) {
+          var inputId = source === 'top' ? 'cmpTopPageInput' : 'cmpBottomPageInput';
+          var input = document.getElementById(inputId);
+          if (!input) return;
+          var pageNum = parseInt(input.value, 10);
+          if (pageNum >= 1 && pageNum <= cmpTotalPages) {
+            cmpCurrentPage = pageNum;
+            cmpRenderPage();
+            document.getElementById('compare') && document.getElementById('compare').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            input.value = '';
+          } else {
+            alert('Please enter a page number between 1 and ' + cmpTotalPages);
+          }
+        };
+
+        var cmpTopInput = document.getElementById('cmpTopPageInput');
+        if (cmpTopInput) cmpTopInput.addEventListener('keypress', function(e) { if (e.key === 'Enter') cmpJumpToPage('top'); });
+        var cmpBottomInput = document.getElementById('cmpBottomPageInput');
+        if (cmpBottomInput) cmpBottomInput.addEventListener('keypress', function(e) { if (e.key === 'Enter') cmpJumpToPage('bottom'); });
+
+        cmpRenderPage();
+      })();
+      ///////////////////////////////////////////////////////// End Comparison /////////////////////////////////////////////////////////
+
+
     </script>
 </body>
 

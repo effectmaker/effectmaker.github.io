@@ -291,4 +291,189 @@ body {
   font-weight: bold;
 }
 
+/* Comparison section (integrated from compare.html) */
+#compare {
+  background-color: #1a1a1a;
+  color: #fff;
+  padding: 20px 0 40px;
+}
+
+#compare .compare-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#compare .compare-header .title {
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+#compare .compare-info {
+  font-size: 18px;
+  color: #aaa;
+  margin-bottom: 8px;
+}
+
+#compare .compare-wrapper {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 20px 0 80px;
+  position: relative;
+}
+
+#compare .cmp-column-headers {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+  margin-bottom: 15px;
+  position: sticky;
+  top: 0;
+  background-color: #1a1a1a;
+  padding: 10px 0;
+  z-index: 100;
+}
+
+#compare .cmp-column-header {
+  background-color: #333;
+  padding: 12px;
+  border-radius: 6px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+#compare .cmp-column-header.ref { color: #4CAF50; }
+#compare .cmp-column-header.image { color: #2196F3; }
+#compare .cmp-column-header.vfxcreator { color: #FF9800; }
+#compare .cmp-column-header.omnieffect { color: #9C27B0; }
+#compare .cmp-column-header.wan22ft { color: #00BCD4; }
+#compare .cmp-column-header.ours { color: #F44336; }
+
+#compare .cmp-gallery-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+#compare .cmp-gallery-row {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+  position: relative;
+}
+
+#compare .cmp-gallery-item {
+  background-color: #2a2a2a;
+  border-radius: 8px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+}
+
+#compare .cmp-row-number {
+  position: absolute;
+  left: -60px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #333;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 16px;
+  color: #ddd;
+}
+
+#compare .cmp-media-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 4px;
+  background-color: #000;
+  min-height: 0;
+}
+
+#compare .cmp-media-container video,
+#compare .cmp-media-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+#compare .cmp-filename-label {
+  padding: 6px 8px;
+  font-size: 11px;
+  color: #aaa;
+  text-align: center;
+  word-break: break-all;
+  line-height: 1.3;
+  background-color: #222;
+  border-radius: 4px;
+  margin-top: 4px;
+}
+
+#compare .pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin: 20px 0;
+  flex-wrap: wrap;
+}
+
+#compare .pagination button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#compare .pagination button:hover:not(:disabled) {
+  background-color: #45a049;
+}
+
+#compare .pagination button:disabled {
+  background-color: #555;
+  cursor: not-allowed;
+}
+
+#compare .pagination .page-number {
+  font-size: 16px;
+  font-weight: bold;
+  padding: 0 10px;
+}
+
+#compare .page-jump {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+#compare .page-jump input {
+  width: 60px;
+  padding: 8px;
+  font-size: 14px;
+  border: 2px solid #4CAF50;
+  border-radius: 4px;
+  background-color: #2a2a2a;
+  color: #fff;
+  text-align: center;
+}
+
+#compare .page-jump button {
+  background-color: #2196F3;
+}
+
+#compare .page-jump button:hover {
+  background-color: #1976D2;
+}
+
+
 
