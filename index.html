@@ -152,11 +152,13 @@
                 </a>
               </span>
 
+
                <!-- Dataset link -->
               <span class="link-block">
-                <!-- <a href="#" -->
                 <a href="https://huggingface.co/datasets/ysy31415926/EffectData"
-                    class="external-link button is-normal is-rounded is-dark">
+                    class="external-link button is-normal is-rounded is-dark"
+                    style="pointer-events: none; opacity: 1.0; cursor: not-allowed;"
+                    tabindex="-1" aria-disabled="true" disabled>
                   <span class="icon">
                     🤗
                   </span>
@@ -177,12 +179,12 @@
       <div class="hero-body">
         <div style="font-size: 20px; text-align: center; width: 100%;">
           <b>TL;DR</b>: 
-            EffectMaker is a unified reasoning–generation framework enables zero-shot reference-driven visual effect video creation.
+            EffectMaker is a reasoning–generation framework enables zero-shot reference-driven visual effect video creation.
             <br>
             EffectData is the largest and high-quality synthetic VFX dataset to date, containing 3000+ VFX clasess and 130,000+ videos.
         </div>
         <div style="width: 100%; display: flex; justify-content: center; align-items: center; margin-top: 20px;">
-          <img src="images/teaser.png" alt="Teaser" style="width: 80vw; max-width: 100%; display: block; border-radius: 10px; box-shadow: 0 2px 12px rgba(0,0,0,0.13);" />
+          <img src="media/teaser.png" alt="Teaser" style="width: 80vw; max-width: 100%; display: block; border-radius: 10px; box-shadow: 0 2px 12px rgba(0,0,0,0.13);" />
         </div>
       </div>
     </div>
@@ -195,7 +197,7 @@
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
 
-          <h2 class="title is-3">Abstract</h2>
+          <h2 class="title is-3">📄 Abstract</h2>
           <div class="content has-text-justified">
             <p>
                 Visual effects (VFX) are essential for enhancing the expressiveness and creativity of video content, yet producing high-quality effects typically requires expert knowledge and costly production pipelines. Existing AIGC systems face significant challenges in VFX generation due to the scarcity of effect-specific data and the inherent difficulty of modeling supernatural or stylized effects. Moreover, these approaches often require per-effect fine-tuning, which severely limits their scalability and generalization to novel VFX.
@@ -209,20 +211,20 @@
   </section>
   <!-- End paper abstract -->
 
-  <!-- Paper poster -->
+  <!-- EffectMaker: How does it work? -->
   <section class="hero is-small">
     <div class="hero-body">
       <div class="container is-max-desktop">
         <div class="columns is-centered has-text-centered">
           <div class="column">
-            <h2 class="title is-3">Method</h2>
+            <h2 class="title is-3">⚡️ EffectMaker: How does it work?</h2>
             <div class="content has-text-justified">
-              <table border="0" style="width: 60% !important; margin: 0 auto;">
+              <table border="0" style="width: 80% !important; margin: 0 auto;">
                 <tbody>
                   <tr>
                     <td colspan="3">
                       <p>
-                        Overview of our model architecture. Given a reference VFX video and a target image, on the reasoning side, an MLLM extracts
+                        EffectMaker consists of two main components: a reasoning component and a generation component. Given a reference VFX video and a target image, on the reasoning side, an MLLM extracts
                         high-level semantic cues of the reference video, providing abstract effect descriptions that serve as semantic guidance. On the generation
                         side, a video DiT model leverages in-context generation to capture fine-grained visual details from the reference, and generates a target
                         video with consistent visual effect.
@@ -231,7 +233,7 @@
                   </tr>
                   <tr>
                     <td colspan="3" style="text-align: center;">
-                      <img src="images/pipeline2.png" alt="" width="100%" style="display: inline-block; margin: 0 auto;" >
+                      <img src="media/pipeline2.png" alt="" width="100%" style="display: inline-block; margin: 0 auto;" >
                     </td>
                   </tr>
                 </tbody>
@@ -239,18 +241,46 @@
             </div>
           </div>
   </section>
-  <!--End paper poster -->
+  <!--End EffectMaker: How does it work? -->
 
 
-  <!-- Paper poster -->
+
+  <!-- EffectData Examples -->
   <section class="hero is-light">
     <div class="hero-body">
       <div class="container is-max-desktop">
         <div class="columns is-centered has-text-centered">
           <div class="column">
-            <h2 class="title is-3">Dataset Construction</h2>
+            <h2 class="title is-3">🔥 EffectData: the largest, high-quality VFX dataset</h2>
             <div class="content has-text-justified">
-              <table border="0" style="width: 60% !important; margin: 0 auto;">
+              <p style="width: 80%; margin: 0 auto 20px auto;">
+                We introduce <b>EffectData</b>, the largest and high-quality synthetic dataset to date, containing <b>130k videos</b> across <b>3k diverse effect categories</b>,  including atmospheric, transformation, stylistic, motion-based effects, and more. EffectData expands the effect category by an order of magnitude compared with existing datasets and offers paired annotations. Here we show some examples sampled from our EffectData dataset:
+              </p>
+              <div style="width: 100%; margin: 0 auto;">
+                <video src="media/vfx_example.mp4" autoplay loop muted playsinline style="width: 100%; border-radius: 10px; box-shadow: 0 2px 12px rgba(0,0,0,0.13);"></video>
+              </div>
+              <p style="width: 80%; margin: 20px auto 0 auto; text-align: center; font-style: italic; color: #555;">
+                We plan to release the dataset to support future research in VFX generation and editing. The dataset is currently being prepared and undergoing approval for public release. Stay tuned!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End EffectData Examples -->
+
+
+
+  <!-- Dataset Construction -->
+  <section class="hero is-small">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+          <div class="column">
+            <h2 class="title is-3">EffectData Construction Pipeline</h2>
+            <div class="content has-text-justified">
+              <table border="0" style="width: 80% !important; margin: 0 auto;">
                 <tbody>
                   <tr>
                     <td colspan="3">
@@ -267,7 +297,7 @@
                   </tr>
                   <tr>
                     <td colspan="3" style="text-align: center;">
-                      <img src="images/data_pipeline.png" alt="" width="100%" style="display: inline-block; margin: 0 auto;" >
+                      <img src="media/data_pipeline.png" alt="" width="100%" style="display: inline-block; margin: 0 auto;" >
                     </td>
                   </tr>
                 </tbody>
@@ -275,14 +305,15 @@
             </div>
           </div>
   </section>
-  <!--End paper poster -->
+  <!--End Dataset Construction -->
+
 
 
   <!-- Gallery section (integrated from gallery.html) -->
   <section class="hero" id="gallery">
     <div class="hero-body">
       <div class="gallery-header">
-        <h2 class="title is-3">EffectMaker Gallery</h2>
+        <h2 class="title is-3">🎬 EffectMaker Gallery</h2>
         <div class="page-info">
           <span id="pageInfo">Page 1 / 1</span>
           <span style="margin-left: 20px;">Total: <span id="totalItems">0</span> items</span>
@@ -327,7 +358,7 @@
   <section class="hero" id="compare">
     <div class="hero-body">
       <div class="compare-header">
-        <h2 class="title is-3">Comparison with Baseline Methods (on OpenVFX)</h2>
+        <h2 class="title is-3">📊 Comparison with Baseline Methods</h2>
         <div class="compare-info">
           This gallery shows the comparison on OpenVFX dataset.
           <span style="margin-left: 20px;">Page <span id="cmpPageInfo">1 / 3</span></span>
@@ -372,7 +403,8 @@
   <!--BibTex citation -->
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
-      <h2 class="title">BibTeX</h2>
+      <h2 class="title">📚 Citation</h2>
+      If you find our work / dataset useful, please consider citing:
       <pre>
         <code>
           @article{effectmaker,
@@ -386,6 +418,21 @@
     </div>
   </section>
   <!--End BibTex citation -->
+
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <h2 class="title is-3">🌍 Visitor Map</h2>
+          <div style="display: flex; justify-content: center;">
+            <!-- 将 ClustrMaps 提供的嵌入代码粘贴到这里 -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
 
 
   <section class="hero is-small">
